@@ -11,12 +11,6 @@ menu:
 
 Anyone! The calendar is free service for community members to use.
 
-**Please note:** Shift hosts the calendar as a public service. Rides and events are posted to the Shift calendar by community members, not by Shift. Rides and events posted to the Shift calendar are not sponsored by Shift or Shift’s fiscal sponsor, Umbrella.
-
-### Are rides free?
-
-Most events are free. If there's a fee, it has to be listed in the description.
-
 ### Do rides return to the start location?
 
 It depends. Some rides do, and some don't. Ride leaders have the option to indicate whether the ride is a loop or not, and can also provide info about the end location. Contact the organizer if you're not sure.
@@ -24,11 +18,6 @@ It depends. Some rides do, and some don't. Ride leaders have the option to indic
 ### I have questions about a specific ride. How can I find out more info?
 
 Use the contact info on the event listing to contact the organizer.
-
-### A ride leader didn't post any contact info. How can I contact them?
-
-We recommend that all ride leaders include at least 1 public contact method, but not all do. If you have a question for a ride leader but don't have a way to contact them, email the [Shift calendar crew](mailto:bikecal@shift2bikes.org). We can't share the ride leader's contact info without their permission, but we can forward your message to them. The ride leader may then choose to respond or not — it's up to them.
-
 
 ## Posting events
 
@@ -54,14 +43,6 @@ You can, but you don't have to. You need to identify who is organizing the ride,
 ### What if I don't have all of the details ready yet?
 
 You can post it, but make sure you update the listing before the event. You can use "TBA" for a start location if you don't know yet where it will start, or if you want to keep it a secret until closer to the event.
-
-### Can I post events that have fees?
-
-Yes, but you **must** mention that in the description. If you don't, people will assume the event is free.
-
-### Is my contact info public?
-
-Only what you want to share. You can choose what contact info you want to include on the public listing. You aren't required to share any contact info publicly, but we recommend including at least one way for people to contact you — email, phone, or web link.
 
 ### Do I have to provide my email?
 
@@ -93,19 +74,14 @@ If you're rescheduling to a new date, click on the new date in the date picker t
 
 Yes, but we ask that you clearly indicate that the event isn't a ride, or you may get folks showing up who expect a ride! Things like bike swaps, meetings for bike-focused advocacy groups, and other non-ride bike events are OK to post to the calendar. We recommend using the "newsflash" area to indicate that the event isn't a ride, and also mention it in the description.
 
-### I'm having trouble posting a ride or making changes. Who do I contact?
-
-Email the [Shift calendar crew](mailto:bikecal@shift2bikes.org) if you need help.
-
 ## Subscribing to the calendar
 
 You can use the following steps to see bike events on your phone or computer's built-in calendar app. As new rides are created, they will show up on your calendar automatically (usually within 24 hours of the ride being posted by the organizer). This is a convenient way to stay up to date, but remember these are community led events: you will see all sorts of rides intended for all different riders.
 
 There are are two calendars you can subscribe to:
 
-* **The Pedalpalooza calendar**: This will show only the events happening during the official Pedalpalooza summer festival. [webcal://www.shift2bikes.org/cal/pedalpalooza-calendar.php](webcal://www.shift2bikes.org/cal/pedalpalooza-calendar.php)
-
-* **The Community calendar**: This will show all Pedalpalooza events, but also any other bike rides that might happen over the course of year. [webcal://www.shift2bikes.org/cal/shift-calendar.php](webcal://www.shift2bikes.org/cal/shift-calendar.php)
+* **The Pedalpalooza calendar**: This will show only the events happening during the official Pedalpalooza summer festival. <webcal://www.shift2bikes.org/cal/pedalpalooza-calendar.php>
+* **The Community calendar**: This will show all Pedalpalooza events, but also any other bike rides that might happen over the course of year. <webcal://www.shift2bikes.org/cal/shift-calendar.php>
 
 On many devices, clicking on either of those links will open your calendar app automatically. Your app will then guide you through the steps to subscribe. For Android devices (or for Google Calendar on iOS devices) you will need to follow these instructions.
 
@@ -122,24 +98,15 @@ For additional help with Android and Google Calendar, please see this [Google su
 ### Other common cases:
 
 1. [iPhone Calendar App](https://support.apple.com/guide/iphone/use-multiple-calendars-iph3d1110d4/ios) - use the instructions under "Set up a calendar: Subscribe to an external, read-only calendar."
-1. [Mac Mail](https://support.apple.com/guide/calendar/subscribe-to-calendars-icl1022/mac) - follow the instructions for "Subscribe to a calendar."
-1. [Outlook](https://support.microsoft.com/en-us/office/import-or-subscribe-to-a-calendar-in-outlook-on-the-web-503ffaf6-7b86-44fe-8dd6-8099d95f38df) - follow the instructions for "Subscribing to a calendar."
-1. [Thunderbird](https://support.mozilla.org/en-US/kb/adding-a-holiday-calendar) - follow the instructions for subscribing to an "internet holiday calendar", substituting one of the calendar links from above.  ( Pedalpalooza is basically a holiday anyway, right? 😊 )
+2. [Mac Mail](https://support.apple.com/guide/calendar/subscribe-to-calendars-icl1022/mac) - follow the instructions for "Subscribe to a calendar."
+3. [Outlook](https://support.microsoft.com/en-us/office/import-or-subscribe-to-a-calendar-in-outlook-on-the-web-503ffaf6-7b86-44fe-8dd6-8099d95f38df) - follow the instructions for "Subscribing to a calendar."
+4. [Thunderbird](https://support.mozilla.org/en-US/kb/adding-a-holiday-calendar) - follow the instructions for subscribing to an "internet holiday calendar", substituting one of the calendar links from above.  ( Pedalpalooza is basically a holiday anyway, right? 😊 )
 
 ## Glossary
 
 Here are some acronyms and phrases that might be used in a ride listing: 
 
-* PP: [Pedalpalooza](/pages/pedalpalooza/)
-* MMR: [Midnight Mystery Ride](/pages/mmr/)
-* BonB: [Breakfast on the Bridges](/pages/bonb/)
-* WNBR: [World Naked Bike Ride](/pages/wnbr/)
-* MCBF: [Multnomah County Bike Fair](/pages/mcbf/)
-* MBB, MXB: [Move By Bike](/pages/mbb/)
-* S2B: [Shift2Bikes](/pages/mission_statement/) :)
-* BP: [BikePortland](https://bikeportland.org/)
 * LNT: [Leave no trace](https://en.wikipedia.org/wiki/Leave_No_Trace)
 * R2R: "ride to the ride"; a ride specifically for arriving at another ride
 * corkers, corking: riders who block traffic from side roads at an intersection so that the rest of the ride can freely proceed through without interruption
 * no-drop: a ride where no one gets left behind — the ride waits for all riders in the event of mechanical difficulties, slower riders, etc; contrast with a drop ride, which isn't expected to wait for everyone
-
