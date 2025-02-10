@@ -41,25 +41,6 @@ collections:
       - {label: "Page #", name: "weight", widget: number}
       - {label: "Body", name: "body", widget: "markdown"}
 
-  - name: "pedalpalooza" # Used in routes, e.g., /admin/collections/pages
-    label: "pedalpalooza archive" # Used in the UI
-    folder: "site/content/archive/pedalpalooza" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template: title.md
-    fields: # The fields for each document, usually in front matter
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Page #", name: "weight", widget: number}
-      - {name: "menu", widget: "hidden"}
-      - {name: "id", widget: "hidden"}
-      - {name: "type", widget: "hidden"}
-      - {name: "pp", widget: "hidden"}
-      - {name: "year", widget: "hidden"}
-      - {name: "startdate", widget: "hidden"}
-      - {name: "enddate", widget: "hidden"}
-      - {name: "daterange", widget: "hidden"}
-      - {name: "banner-image", widget: "hidden"}
-      - {name: "poster-image", widget: "hidden"}
-      - {label: "Body", name: "body", widget: "markdown"}
 
   - label: "extra pages" # Used in the UI 
     name: "extra-pages" # Used in routes, e.g., /admin/collections/archive
