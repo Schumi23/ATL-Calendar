@@ -38,7 +38,7 @@
   # https://answers.netlify.com/t/support-guide-using-an-ssh-key-via-environment-variable-during-build/2457
 
   # TL;DR comment out the next line if you are working on your own Netlify site!  
-  command = 'hugo && cp public/404/index.html public/404.html && mkdir -p ~/.ssh && echo -e "${SSH_KEY//_/\\n}" > ~/.ssh/id_rsa && chmod og-rwx ~/.ssh/id_rsa && ssh -v -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ubuntu@api.cycrev.com "cd /opt/shift-docs && sudo ./shift pull" || (echo "you seem to be building without ssh access - see https://github.com/shift-org/shift-docs#netlify-deployment for details" ; /bin/false)'
+  command = 'hugo && cp public/404/index.html public/404.html && mkdir -p ~/.ssh && echo -e "${SSH_KEY//_/\\n}" > ~/.ssh/id_rsa && chmod og-rwx ~/.ssh/id_rsa && ssh -v -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ubuntu@api.cycrev.com "cd /opt/ATL-Calendar && sudo ./shift pull" || (echo "you seem to be building without ssh access - see https://github.com/shift-org/shift-docs#netlify-deployment for details" ; /bin/false)'
 
   # uncomment the next line if you are working on your own Netlify site!
   # command = 'hugo && cp public/404/index.html public/404.html'
