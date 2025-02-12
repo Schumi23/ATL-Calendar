@@ -14,133 +14,88 @@
   # see also package.json, and docker-compose.yml
   HUGO_VERSION = "0.128.2"
 
+# we need to manually copy the 404 page over for now, in every environment
+# cf https://github.com/shift-org/shift-docs/issues/862
+
 [context.deploy-preview]
+  # this command additionally builds draft content for deploy previews (PR's)
+  # you'd set a page as draft in the frontmatter of the markdown.
+  # cf https://docs.netlify.com/site-deploys/deploy-previews/
   # this command builds draft content for deploy previews
   command = 'hugo -D && cp public/404/index.html public/404.html'
 
 [context.branch-deploy]
   # this command builds draft content for branches
+    # you'd set a page as draft in the frontmatter of the markdown.
   command = 'hugo -D  && cp public/404/index.html public/404.html'
 
 [context.production]
   # Note that there are two versions of the below command 
-  # drafts are excluded (no `-D` option to hugo) for prod build.  We also pull new code to the server in this case!
+  # drafts are excluded (no `-D` option to hugo) for prod build.  
+  # We also pull new backend code to the server for prod deploys
 
-  # comment out the next line if you are working on your own Netlify site!
-  #command = 'hugo && cp public/404/index.html public/404.html && mkdir -p ~/.ssh && echo -e "${SSH_KEY//_/\\n}" > ~/.ssh/id_rsa && chmod og-rwx ~/.ssh/id_rsa && ssh -v -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ubuntu@api.shift2bikes.org "cd /opt/shift-docs && sudo ./shift pull" || (echo "you seem to be building without ssh access - see https://github.com/shift-org/shift-docs#netlify-deployment for details" ; /bin/false)'
+  # see this guide about why we do this funky thing with ssh: 
+  # https://answers.netlify.com/t/support-guide-using-an-ssh-key-via-environment-variable-during-build/2457
+
+  # TL;DR comment out the next line if you are working on your own Netlify site!  
+  command = 'hugo && cp public/404/index.html public/404.html && mkdir -p ~/.ssh && echo -e "${SSH_KEY//_/\\n}" > ~/.ssh/id_rsa && chmod og-rwx ~/.ssh/id_rsa && ssh -v -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ubuntu@api.cycrev.com "cd /opt/shift-docs && sudo ./shift pull" || (echo "you seem to be building without ssh access - see https://github.com/shift-org/shift-docs#netlify-deployment for details" ; /bin/false)'
 
   # uncomment the next line if you are working on your own Netlify site!
-   command = 'hugo && cp public/404/index.html public/404.html'
+  # command = 'hugo && cp public/404/index.html public/404.html'
 
-## domain redirects to serve from the CDN and canonicalize
-## must be first redirects in this file!
+## need to support multiple domains?  
+## Use domain redirects to serve alternative domains.  
+## First, canonicalize secondarydomain.com to primarydomain.org
+## so that we can serve all content via the "best" hostname (NETLIFY DNS record)
+## such redirects must be first redirects in this file!
+
 
 [[redirects]]
-  from = "https://shift2bikes.com/*"
-  to = "https://www.shift2bikes.org/:splat"
+  from = "https://secondarydomain.com/*"
+  to = "https://www.primarydomain.org/:splat"
   status = 301
   force = true
 [[redirects]]
-  from = "https://www.shift2bikes.com/*"
-  to = "https://www.shift2bikes.org/:splat"
+  from = "https://www.secondarydomain.com/*"
+  to = "https://www.primarydomain.org/:splat"
   status = 301
   force = true
-[[redirects]]
-  from = "https://shifttobikes.com/*"
-  to = "https://www.shift2bikes.org/:splat"
-  status = 301
-  force = true
-[[redirects]]
-  from = "https://www.shifttobikes.com/*"
-  to = "https://www.shift2bikes.org/:splat"
-  status =  301
-  force = true
-[[redirects]]
-  from = "https://shifttobikes.org/*"
-  to = "https://www.shift2bikes.org/:splat"
-  status = 301
-  force = true
-[[redirects]]
-  from = "https://www.shifttobikes.org/*"
-  to = "https://www.shift2bikes.org/:splat"
-  status = 301
-  force = true
-[[redirects]]
-  from = "https://new.shift2bikes.org/*"
-  to = "https://www.shift2bikes.org/:splat"
-  status = 301
-  force = true
-[[redirects]]
-  from = "https://pedalpalooza.org/*"
-  to = "http://pedalpaloozamedia.wixsite.com/pedalpalooza"
-  status = 302
-  force = true
-[[redirects]]
-  from = "https://www.pedalpalooza.org/*"
-  to = "http://pedalpaloozamedia.wixsite.com/pedalpalooza"
-  status = 302
-  force = true
+
 
 #------------------------------------------------------------------------------------
 # dynamic back end + event images stored over here.  Solves CORS problems to proxy.
 #------------------------------------------------------------------------------------
+
 [[redirects]]
   from = "/api/*"
-  to = "https://api.shift2bikes.org/api/:splat"
+  to = "https://api.cycrev.com/api/:splat"
   status = 200
 
 [[redirects]]
   from = "/eventimages/*"
-  to = "https://api.shift2bikes.org/eventimages/:splat"
+  to = "https://api.cycrev.com/eventimages/:splat"
   status = 200
 
-# legacy ical feed for pedalpalooza.  Can't get to /legacy/cal content via www.shift2bikes.org due to other redirects, so proxying secretly here.
-[[redirects]]
-  from = "/cal/icalpp.php"
-  to = "https://api.shift2bikes.org/api/pedalpalooza-calendar.php"
-  status = 200
-  force = true
+## have a www path you want to serve via some path on the backend?  here's how:
 
-# the official pedalpalooza feed
 [[redirects]]
-  from = "/cal/pedalpalooza-calendar.php"
-  to = "https://api.shift2bikes.org/api/pedalpalooza-calendar.php"
+  from = "/my/specialpath"
+  to = "https://api.cycrev.com/api/pedalpalooza-calendar.php"
   status = 200
   force = true
 
-# the official "all events" feed.
+## the official "all events" feed.  
+## you'll probably want this somewhere on your ite!
 [[redirects]]
-  from = "/cal/shift-calendar.php"
-  to = "https://api.shift2bikes.org/api/shift-calendar.php"
+  from = "/allevents"
+  to = "https://api.cycrev.com/api/shift-calendar.php"
   status = 200
   force = true
 
-#------------------------------------------------------------------------------------
-# these two are needed for legacy "shareable links" from 2017-early 2019 era
-#------------------------------------------------------------------------------------
-[[redirects]]
-  from = "/fun/*"
-  to = "/calendar/:splat"
-  status = 301
-[[redirects]]
-  from = "/fun2/*"
-  to = "/calendar/:splat"
-  status = 301
+## remove trailing slashes via some magic.  
+## fool can't really believe this works;  it is likely fragile!
+## helps with prerendering: https://docs.netlify.com/site-deploys/post-processing/prerendering/
 
-# we can't translate REALLY legacy links (<2017) - they used some odd format.  
-# But let's at least land on the calendar page.
-[[redirects]]
-  from = "/cal/*"
-  to = "/calendar/"
-  status = 301
-
-# testing out a special redirect for a URL that someone made up
-[[redirects]]
-  from = "/calendar/pedalpalooza"
-  to = "/pages/pedalpalooza"
-  status = 301
-  
-# remove-add trailing slashes kinda?  fool can't really believe this works :P
 [[redirects]]
   from = "/addevent/*"
   to = "/addevent"
@@ -150,21 +105,12 @@
   to = "/calendar/event"
   status = 200
 
-# old pedalpalooza page should link to new one
+## have a path you want to simplify vs its real location, all front-end?
+## note that this tells the client about the new location so the redirect
+## will be automatic & will be client side in the future!
+## here's how: 
+
 [[redirects]]
   from = "/pedalpalooza"
   to = "/pages/pedalpalooza"
   status = 301
-
-# old bike rack webpage linked from PBoT and other pages we can't fix
-[[redirects]]
-  from = "/wiki/shift-shop:rack-rental"
-  to = "/pages/bike-racks/"
-  status = 301
-  
-# redirect for BonB 20 year fundraiser 2022
-[[redirects]]
-  from = "/fillourcups"
-  to = "https://shop.ohmydollar.com/collections/breakfast-on-the-bridges-20th-year-collection"
-  status = 200
-  force = true
